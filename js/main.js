@@ -52,8 +52,9 @@ class Board {
         this.drawBoard()
         this.createArrayOfRandom()
         let cells = document.querySelectorAll('td')
-        cells.forEach(cell =>{
-            if(this.arrayRandoms.includes(parseInt(cell.getAttribute('data')))){
+        cells.forEach((cell,i) =>{
+            
+            if (this.arrayRandoms.includes(i)) {
                 cell.classList.add('editable')
                 cell.innerHTML = ""
                 cell.addEventListener('click', this.leaveAnswer)
@@ -66,6 +67,7 @@ class Board {
             let random = Math.floor(Math.random() * (this.width*this.height)+1)
             if (random>10){this.arrayRandoms.push(random)}
         }
+        console.log(this.arrayRandoms)
         
     }
 
